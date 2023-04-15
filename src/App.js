@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { Route, Routes } from "react-router-dom";
+import Header from "./component/Header";
+import Footer from "./component/Footer";
+import LoginPage from "./page/LoginPage";
+import SignupPage from "./page/SignupPage";
+import { Container } from "react-bootstrap";
+import DiscussPage from "./page/DiscussPage";
+import HomePage from "./page/HomePage";
+import EmailVerifyPage from "./page/EmailVerifyPage";
+import CreatePostPage from "./page/CreatePostPage";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <main>
+        <Container>
+          <Routes>
+            <Route path="/" element={<HomePage/>}></Route>
+            <Route path="/login" element={<LoginPage />}></Route>
+            <Route path="/signup" element={<SignupPage />}></Route>
+            <Route path="/discuss" element= {<DiscussPage/> }></Route>
+            <Route path="/emailVerify" element= {<EmailVerifyPage/>}></Route>
+            <Route path="/addPost" element={<CreatePostPage/>}></Route>
+          </Routes>
+        </Container>
+      </main>
+      <Footer />
+    </>
   );
 }
 
